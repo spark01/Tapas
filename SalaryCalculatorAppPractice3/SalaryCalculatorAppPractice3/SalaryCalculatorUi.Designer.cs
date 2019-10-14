@@ -49,7 +49,7 @@
             this.ShowMeSalaryButton.TabIndex = 30;
             this.ShowMeSalaryButton.Text = "Show Me Salary";
             this.ShowMeSalaryButton.UseVisualStyleBackColor = true;
-            this.ShowMeSalaryButton.Click += new System.EventHandler(this.ShowMeSalaryButton_Click_1);
+            this.ShowMeSalaryButton.Click += new System.EventHandler(this.ShowMeSalaryButton_Click);
             // 
             // medicalAllowanceTextBox
             // 

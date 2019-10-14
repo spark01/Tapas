@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SalaryCalculatorAppPractice3
-{
+{ 
     public partial class SalaryCalculatorUi : Form
-    { 
-        SalaryCount salaryCount= new SalaryCount();
-
+    {
+        Salary salary = new Salary();
+        public double total;
         public SalaryCalculatorUi()
         {
             InitializeComponent();
@@ -21,24 +21,18 @@ namespace SalaryCalculatorAppPractice3
 
         private void ShowMeSalaryButton_Click(object sender, EventArgs e)
         {
+            salary.employeeName = employeeNameTextBox.Text;
+            salary.basicAmount = Convert.ToDouble(basicAmountTextBox.Text);
+            salary.houseRent= Convert.ToDouble(homeRentTextBox.Text);
+            salary.madicaleAllowance = Convert.ToDouble(medicalAllowanceTextBox.Text);
+            total = salary.Totalsalary();
+            employeeNameTextBox.Clear();
+            basicAmountTextBox.Clear();
+            homeRentTextBox.Clear();
+            medicalAllowanceTextBox.Clear();
 
-            salaryCount.employeeName = employeeNameTextBox.Text;
-            salaryCount.basicAmount = Convert.ToDouble(basicAmountTextBox.Text);
-            salaryCount.houseRent = Convert.ToDouble(homeRentTextBox.Text);
-            salaryCount.madicaleAllowance = Convert.ToDouble(medicalAllowanceTextBox.Text);
+            MessageBox.Show(salary.employeeName +"Your Total Salary " +total.ToString());
 
-           salaryCount.Show();
-        }
-
-        private void ShowMeSalaryButton_Click_1(object sender, EventArgs e)
-        {
-            salaryCount.employeeName = employeeNameTextBox.Text;
-            salaryCount.basicAmount = Convert.ToDouble(basicAmountTextBox.Text);
-            salaryCount.houseRent = Convert.ToDouble(homeRentTextBox.Text);
-            salaryCount.madicaleAllowance = Convert.ToDouble(medicalAllowanceTextBox.Text);
-
-            salaryCount.Show();
         }
     }
 }
-
