@@ -10,35 +10,34 @@ using System.Windows.Forms;
 
 namespace VechicleAppPractice2
 {
+    
     public partial class VehicleUi : Form
     {
-        public Vehicle Vehicle;
+        Vehicle vehicle = new Vehicle();
         public VehicleUi()
         {
             InitializeComponent();
         }
 
-        private void EnterButton_Click(object sender, EventArgs e)
-        {
-            Vehicle.Speed.Add(Convert.ToDouble(speedTextBox.Text));
-            speedTextBox.Clear();
-        }
-
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            Vehicle=new Vehicle(vehicleNameTextBox.Text,regNoTextBox.Text);
+            vehicle.Set(vehicleNameTextBox.Text,regNoTextBox.Text);
             vehicleNameTextBox.Clear();
             regNoTextBox.Clear();
         }
 
+        private void EnterButton_Click(object sender, EventArgs e)
+        {
+            vehicle.SetSpeed(Convert.ToDouble(speedTextBox.Text));
+            speedTextBox.Clear();
+        }
+
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            maxSpeedTextBox.Text = Vehicle.Speed.Max().ToString();
-            minSpeedTextBox.Text = Vehicle.Speed.Min().ToString();
-            averageSpeedTextBox.Text = Vehicle.Speed.Average().ToString();
-            vehicleNameTextBox.Text = Vehicle.Name;
-            regNoTextBox.Text = Vehicle.RegNo;
-
+            //MessageBox.Show(vehicle.GetMax() + " " + vehicle.GetMin() + " " + vehicle.GetAvg());
+            minSpeedTextBox.Text = vehicle.GetMin().ToString();
+            maxSpeedTextBox.Text = vehicle.GetMax().ToString();
+            averageSpeedTextBox.Text = vehicle.GetAvg().ToString();
         }
     }
 }

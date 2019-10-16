@@ -7,14 +7,54 @@ using System.Threading.Tasks;
 namespace VechicleAppPractice2
 {
     public class Vehicle
-    {     
-       public string Name { get; set; }
-       public string RegNo { get; set; }
-       public List<Double> Speed=new List<double>();
-       public Vehicle(string Name,string RegNo)
-       {
-           this.Name = Name;
-           this.RegNo = RegNo;
-       }
+    {
+        public string VName { get; set; }
+        public string RegNo { get; set; }
+        List<double> Speeds = new List<double>();
+
+        public void Set(string name, string reg)
+        {
+            VName = name;
+            RegNo = reg;
+        }
+
+        public void SetSpeed(double spd)
+        {
+            Speeds.Add(spd);
+            
+        }
+
+        public double GetMax()
+        {
+            if (Speeds.Count > 0)
+            {
+                return Speeds.Max();
+            }
+
+            return 0;
+
+        }
+
+        public double GetMin()
+        {
+            if (Speeds.Count > 0)
+            {
+                return Speeds.Min();
+            }
+            return 0;
+
+        }
+
+        public double GetAvg()
+        {
+            if (Speeds.Count > 0)
+            {
+                return Speeds.Average();
+            }
+
+            return 0;
+
+        }
+
     }
 }
